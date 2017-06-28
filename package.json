@@ -2,7 +2,7 @@
   "name": "quartic",
   "version": "0.1.0",
   "description": "JavaScript library for solving quartic equations",
-  "main": "index.js",
+  "main": "quartic.js",
   "scripts": {
     "test": "mocha test/index.js"
   },
