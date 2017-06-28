@@ -666,9 +666,9 @@ var QUARTIC = function(){
     };
 
 
-    
-
-    
 }();
 
-module.exports = QUARTIC;
+//Conditional container export for back/front end compatibility.
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+    module.exports = QUARTIC;
+}
