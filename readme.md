@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-$ npm install quartic
+$ npm install quartic   //!Warning: Old version on npm
 ```
 
 ### Usage
