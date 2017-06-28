@@ -17,8 +17,8 @@ The results are returned as [Math.js][mathjs] complex number objects, with `re` 
 ```js
 var quartic = require('quartic');
 
-var coefficients = [5, 4, 3, 2, 1];
-var roots = quartic(coefficients);
+//Solve 5x^4 + 4x^3+ 3x^2 + 2x + 1
+var roots = quartic(5,4,3,2,1); 
 
 console.log(roots);
 ```
@@ -29,7 +29,7 @@ console.log(roots);
 $ git clone https://github.com/lavelle/quartic
 $ cd quartic
 $ npm install
-$ make test
+$ npm test
 ```
 
 ## Credits
