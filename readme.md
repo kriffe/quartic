@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-$ npm install quartic   //!Warning: Old version on npm
+$ npm install @skymaker/quartic 
 ```
 
 ### Usage
@@ -18,7 +18,7 @@ The results are returned as [Math.js][mathjs] complex number objects, with `re` 
 var quartic = require('quartic');
 
 //Solve 5x^4 + 4x^3+ 3x^2 + 2x + 1
-var roots = quartic(5,4,3,2,1); 
+var roots = quartic.solve(5,4,3,2,1); 
 
 console.log(roots);
 ```
