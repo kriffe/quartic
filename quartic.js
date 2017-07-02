@@ -644,6 +644,21 @@ var QUARTIC = function(){
 
             var coeffs = [a,b,c,d,e];
             var POLYDEGREE = 4;
+
+            //Validate coeffs
+            coeffs.forEach(function(c,i){
+                if (isNaN(Number(c))) console.warn("ERROR: Invalid coeff "+ i);
+            });
+
+            while ((coeffs[0] === 0) && (POLYDEGREE > 0)){
+                for (var i = 0; i < POLYDEGREE; i++) {
+                    coeffs[i] = coeffs[i + 1];
+                } // End for i
+                POLYDEGREE--;
+            } 
+        
+
+            
             // Vector of real components of roots
             var zeror = [];
             // Vector of imaginary components of roots
@@ -657,7 +672,7 @@ var QUARTIC = function(){
             }
             rpSolve(degreePar, coeffs, zeror, zeroi);
             var ret = [];
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < POLYDEGREE; i++) {
                 ret.push(new ComplexNumber(zeror[i], zeroi[i]));
             }
             return ret;

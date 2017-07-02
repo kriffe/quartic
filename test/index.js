@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 
 
-var QUARTIC = require('../index.js');
+var QUARTIC = require('../quartic.js');
 
 var complex = QUARTIC.ComplexNumber;
 
@@ -31,4 +31,19 @@ describe('Quartic solver', function() {
     
   });
 
+
+  it('should handle zeros in top coeff',function(){
+    var roots = solveQuartic(0,1,1,1,1);
+
+     expect(roots.length).to.equal(3);
+     expect(roots[0].getRounded(5)).to.deep.equal(new complex( 0,  1));
+     expect(roots[1].getRounded(5)).to.deep.equal(new complex( 0,  -1));
+     expect(roots[2].getRounded(5)).to.deep.equal(new complex( -1,  0));
+     
+
+    
+  })
+
 });
+
+
