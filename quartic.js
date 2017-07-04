@@ -625,22 +625,23 @@ var QUARTIC = function(){
         return numberToRound;
     }
 
+    var oldReturnFunction = function(coeff){
+            console.warn("DEPRECATED: Use QUARTIC.solve(5,4,3,2,1) call instead");
+            return solve(coeff[0],coeff[1],coeff[2],coeff[3],coeff[4]);
+    }; 
 
-
-    return {
-        
-        /**
-         * Solve a 4th degree polynome, y,x
-         * y = ax^4 + bx^3 + cx^2 + dx + e
-         * 
-         * @param {any} a 
-         * @param {any} b 
-         * @param {any} c 
-         * @param {any} d 
-         * @param {any} e 
-         * @returns 
-         */
-        solve:function(a,b,c,d,e){
+    /**
+     * Solve a 4th degree polynome, y,x
+     * y = ax^4 + bx^3 + cx^2 + dx + e
+     * 
+     * @param {any} a 
+     * @param {any} b 
+     * @param {any} c 
+     * @param {any} d 
+     * @param {any} e 
+     * @returns 
+     */
+    var solve = function(a,b,c,d,e){
 
             var coeffs = [a,b,c,d,e];
             var POLYDEGREE = 4;
@@ -657,8 +658,6 @@ var QUARTIC = function(){
                 POLYDEGREE--;
             } 
         
-
-            
             // Vector of real components of roots
             var zeror = [];
             // Vector of imaginary components of roots
@@ -676,9 +675,17 @@ var QUARTIC = function(){
                 ret.push(new ComplexNumber(zeror[i], zeroi[i]));
             }
             return ret;
-        },
-        ComplexNumber: ComplexNumber
-    };
+        };
+
+    oldReturnFunction.solve = solve;
+    oldReturnFunction.ComplexNumber = ComplexNumber;
+
+    return oldReturnFunction;   //ToDo : Deprecate oldReturn function and switch to object
+    
+    // var result = {
+    //     solve:solve,
+    //     ComplexNumber: ComplexNumber
+    // };
 
 
 }();
