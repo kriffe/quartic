@@ -3,6 +3,7 @@
   "version": "0.1.3",
   "description": "JavaScript library for solving quartic equations",
   "main": "quartic.js",
+  "types": "quartic.d.ts",
   "scripts": {
     "test": "mocha test/index.js"
   },
